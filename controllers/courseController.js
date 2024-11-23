@@ -103,3 +103,29 @@ exports.inscribirseEnCurso = async (req, res) => {
     res.status(500).json({ error: "No se pudo inscribir en el curso" });
   }
 };
+
+exports.renderCrearCurso = (req, res) => {
+  const token = req.headers["authorization"]?.split(" ")[1]; // Extraer token del encabezado
+  res.render("crear-curso", { title: "Crear Nuevo Curso", token });
+};
+
+exports.renderEditarCurso = async (req, res) => {
+  const cursoId = req.params.id;
+
+  try {
+    const query = `SELECT * FROM Curso WHERE id = $1`;
+    const result = await db.query(query, [cursoId]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).send("Curso no encontrado");
+    }
+
+    res.render("editar-curso", {
+      title: "Editar Curso",
+      curso: result.rows[0],
+    });
+  } catch (error) {
+    console.error("Error al obtener el curso:", error.message);
+    res.status(500).send("Error al cargar el curso");
+  }
+};

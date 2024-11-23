@@ -20,3 +20,11 @@ router.delete("/curso/:id", protegerRuta, eliminarCurso);
 router.post("/curso/:id/inscribirse", protegerRuta, inscribirseEnCurso);
 
 module.exports = router;
+const {
+  renderCrearCurso,
+  renderEditarCurso,
+} = require("../controllers/courseController");
+
+// Rutas para crear y editar cursos
+router.get("/curso/crear", renderCrearCurso);
+router.get("/curso/:id/editar", renderEditarCurso);

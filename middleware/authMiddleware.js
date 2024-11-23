@@ -1,9 +1,8 @@
-// Middleware para verificar el token JWT
 const jwt = require("jsonwebtoken");
 
-// Middleware para verificar el token JWT
 exports.protegerRuta = (req, res, next) => {
-  const token = req.headers["authorization"]?.split(" ")[1]; // Leer el token del header Authorization
+  // Buscar el token en el encabezado o en el cuerpo de la solicitud
+  const token = req.headers["authorization"]?.split(" ")[1] || req.body.token;
 
   if (!token) {
     return res
