@@ -2,13 +2,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
 
+// Cargar variables de entorno
+dotenv.config();
+
 // Importar modelos
 require("./models/usuario");
 require("./models/curso");
 require("./models/inscripcion");
-
-// Cargar variables de entorno
-dotenv.config();
 
 // Importar el archivo de conexión a la base de datos
 const db = require("./models/db");
@@ -19,6 +19,12 @@ const app = express();
 // Middleware para parsear JSON y datos de formularios
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Importar rutas
+const authRoutes = require("./routes/authRoutes");
+
+// Registrar rutas
+app.use(authRoutes);
 
 // Ruta de ejemplo
 app.get("/", (req, res) => {
