@@ -22,9 +22,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // Importar rutas
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 // Registrar rutas
 app.use(authRoutes);
+app.use(userRoutes);
 
 // Ruta de ejemplo
 app.get("/", (req, res) => {
