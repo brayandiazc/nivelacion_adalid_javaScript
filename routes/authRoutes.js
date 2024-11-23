@@ -1,6 +1,5 @@
 // Importar librerías
 const express = require("express");
-const { renderLandingPage } = require("../controllers/authController");
 
 // Importar controladores
 const {
@@ -8,9 +7,13 @@ const {
   iniciarSesion,
   renderLogin,
   renderRegister,
+  renderLandingPage,
 } = require("../controllers/authController");
 
 const router = express.Router();
+
+// Ruta para la página de inicio
+router.get("/", renderLandingPage);
 
 // Rutas para renderizar vistas de autenticación
 router.get("/login", renderLogin);
@@ -23,5 +26,3 @@ router.post("/usuario/crear", registrarUsuario);
 router.post("/usuario/inicio-sesion", iniciarSesion);
 
 module.exports = router;
-// Ruta para la página de inicio
-router.get("/", renderLandingPage);
