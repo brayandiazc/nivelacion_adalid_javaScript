@@ -1,6 +1,5 @@
-// models/curso.js
-
-const db = require("./db"); // Conexión a la base de datos
+// Conexión a la base de datos
+const db = require("./db");
 
 // Crear tabla Curso si no existe
 const createTableCurso = async () => {

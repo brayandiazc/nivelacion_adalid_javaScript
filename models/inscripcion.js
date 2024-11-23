@@ -1,6 +1,5 @@
-// models/inscripcion.js
-
-const db = require("./db"); // Conexión a la base de datos
+// Conexión a la base de datos
+const db = require("./db");
 
 // Crear tabla Inscripcion si no existe
 const createTableInscripcion = async () => {

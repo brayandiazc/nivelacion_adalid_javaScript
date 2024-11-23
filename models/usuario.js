@@ -1,6 +1,5 @@
-// models/usuario.js
-
-const db = require("./db"); // Conexión a la base de datos
+// Conexión a la base de datos
+const db = require("./db");
 
 // Crear tabla Usuario si no existe
 const createTableUsuario = async () => {
