@@ -3,6 +3,10 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const db = require("../models/db");
 
+if (!process.env.JWT_SECRET) {
+  throw new Error("JWT_SECRET no está definido en el archivo .env");
+}
+
 // Controlador para registrar usuarios
 exports.registrarUsuario = async (req, res) => {
   const { nombre, correo, contrasena, rol } = req.body;
