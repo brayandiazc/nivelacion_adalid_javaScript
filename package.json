@@ -1,0 +1,21 @@
+{
+  "name": "nivelacion_adalid_javascript",
+  "version": "1.0.0",
+  "description": "Una plataforma web diseñada para gestionar cursos de manera eficiente, proporcionando herramientas tanto para estudiantes como para instructores.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
