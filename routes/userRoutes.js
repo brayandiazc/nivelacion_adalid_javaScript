@@ -1,9 +1,12 @@
-// Endpoints para la gestión de usuarios
+// Importar librerías
 const express = require("express");
+
+// Importar controladores
 const {
   obtenerPerfil,
   actualizarPerfil,
 } = require("../controllers/userController");
+
 const { protegerRuta } = require("../middleware/authMiddleware");
 
 const router = express.Router();

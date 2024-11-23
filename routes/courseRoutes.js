@@ -1,12 +1,14 @@
-// routes/courseRoutes.js
-
+// Importar librerias
 const express = require("express");
+
+// Importar controladores
 const {
   crearCurso,
   editarCurso,
   eliminarCurso,
   inscribirseEnCurso,
 } = require("../controllers/courseController");
+
 const { protegerRuta } = require("../middleware/authMiddleware");
 
 const router = express.Router();

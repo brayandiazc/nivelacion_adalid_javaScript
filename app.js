@@ -24,11 +24,13 @@ app.use(express.urlencoded({ extended: true }));
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const courseRoutes = require("./routes/courseRoutes");
+const analyticsRoutes = require("./routes/analyticsRoutes");
 
 // Registrar rutas
 app.use(authRoutes);
 app.use(userRoutes);
 app.use(courseRoutes);
+app.use(analyticsRoutes);
 
 // Ruta de ejemplo
 app.get("/", (req, res) => {
