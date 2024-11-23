@@ -73,3 +73,8 @@ exports.iniciarSesion = async (req, res) => {
     res.status(500).json({ error: "No se pudo iniciar sesión" });
   }
 };
+
+// Renderizar la vista de la página de inicio
+exports.renderLandingPage = (req, res) => {
+  res.render("landing", { title: "Bienvenido a TechWorld" });
+};

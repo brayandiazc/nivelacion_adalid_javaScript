@@ -1,5 +1,6 @@
 // Importar librerías
 const express = require("express");
+const { renderLandingPage } = require("../controllers/authController");
 
 // Importar controladores
 const {
@@ -22,3 +23,5 @@ router.post("/usuario/crear", registrarUsuario);
 router.post("/usuario/inicio-sesion", iniciarSesion);
 
 module.exports = router;
+// Ruta para la página de inicio
+router.get("/", renderLandingPage);
