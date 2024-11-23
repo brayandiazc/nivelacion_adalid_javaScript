@@ -1,0 +1,18 @@
+{{!-- views/crear-curso.handlebars --}}
+<h2 class="text-center">Crear Nuevo Curso</h2>
+<form method="POST" action="/curso/crear">
+  <input type="hidden" name="token" value="{{token}}">
+  <div class="mb-3">
+    <label for="titulo" class="form-label">Título</label>
+    <input type="text" id="titulo" name="titulo" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label for="descripcion" class="form-label">Descripción</label>
+    <textarea id="descripcion" name="descripcion" class="form-control" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="duracion" class="form-label">Duración (semanas)</label>
+    <input type="number" id="duracion" name="duracion" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar Curso</button>
+</form>

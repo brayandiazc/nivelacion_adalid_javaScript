@@ -7,9 +7,13 @@ const {
   iniciarSesion,
   renderLogin,
   renderRegister,
+  renderLandingPage,
 } = require("../controllers/authController");
 
 const router = express.Router();
+
+// Ruta para la página de inicio
+router.get("/", renderLandingPage);
 
 // Rutas para renderizar vistas de autenticación
 router.get("/login", renderLogin);

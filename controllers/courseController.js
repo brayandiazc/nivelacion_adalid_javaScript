@@ -1,6 +1,34 @@
 // Importar el modelo de la base de datos
 const db = require("../models/db");
 
+// Controlador para renderizar la vista de crear curso
+exports.renderCrearCurso = (req, res) => {
+  const token = req.headers["authorization"]?.split(" ")[1]; // Extraer token del encabezado
+  res.render("crear-curso", { title: "Crear Nuevo Curso", token });
+};
+
+// Controlador para renderizar la vista de editar curso
+exports.renderEditarCurso = async (req, res) => {
+  const cursoId = req.params.id;
+
+  try {
+    const query = `SELECT * FROM Curso WHERE id = $1`;
+    const result = await db.query(query, [cursoId]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).send("Curso no encontrado");
+    }
+
+    res.render("editar-curso", {
+      title: "Editar Curso",
+      curso: result.rows[0],
+    });
+  } catch (error) {
+    console.error("Error al obtener el curso:", error.message);
+    res.status(500).send("Error al cargar el curso");
+  }
+};
+
 // Controlador para crear un curso
 exports.crearCurso = async (req, res) => {
   const { titulo, descripcion, duracion } = req.body;
