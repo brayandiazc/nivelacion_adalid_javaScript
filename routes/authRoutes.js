@@ -1,5 +1,7 @@
-// Manejar las rutas de autenticación
+// Importar librerías
 const express = require("express");
+
+// Importar controladores
 const {
   registrarUsuario,
   iniciarSesion,
