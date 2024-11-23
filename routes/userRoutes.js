@@ -5,6 +5,7 @@ const express = require("express");
 const {
   obtenerPerfil,
   actualizarPerfil,
+  renderDashboard,
 } = require("../controllers/userController");
 
 const { protegerRuta } = require("../middleware/authMiddleware");
@@ -16,5 +17,8 @@ router.get("/usuario/perfil", protegerRuta, obtenerPerfil);
 
 // Ruta para actualizar el perfil del usuario
 router.put("/usuario/perfil", protegerRuta, actualizarPerfil);
+
+// Ruta para renderizar el panel del usuario
+router.get("/dashboard", protegerRuta, renderDashboard);
 
 module.exports = router;
