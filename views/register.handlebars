@@ -1,0 +1,28 @@
+{{!-- views/register.handlebars --}}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h2 class="text-center">Registro de Usuario</h2>
+    <form method="POST" action="/usuario/crear">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre Completo</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo Electrónico</label>
+        <input type="email" id="correo" name="correo" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="contrasena" class="form-label">Contraseña</label>
+        <input type="password" id="contrasena" name="contrasena" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="rol" class="form-label">Rol</label>
+        <select id="rol" name="rol" class="form-select" required>
+          <option value="estudiante">Estudiante</option>
+          <option value="instructor">Instructor</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success w-100">Registrarse</button>
+    </form>
+  </div>
+</div>

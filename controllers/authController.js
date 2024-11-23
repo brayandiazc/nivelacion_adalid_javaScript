@@ -7,15 +7,23 @@ if (!process.env.JWT_SECRET) {
   throw new Error("JWT_SECRET no está definido en el archivo .env");
 }
 
+// Renderizar la vista de inicio de sesión
+exports.renderLogin = (req, res) => {
+  res.render("login", { title: "Iniciar Sesión" });
+};
+
+// Renderizar la vista de registro
+exports.renderRegister = (req, res) => {
+  res.render("register", { title: "Registro de Usuario" });
+};
+
 // Controlador para registrar usuarios
 exports.registrarUsuario = async (req, res) => {
   const { nombre, correo, contrasena, rol } = req.body;
 
   try {
-    // Encriptar la contraseña
     const hashedPassword = await bcrypt.hash(contrasena, 10);
 
-    // Insertar el usuario en la base de datos
     const query = `
       INSERT INTO Usuario (nombre, correo, contrasena, rol)
       VALUES ($1, $2, $3, $4)
@@ -39,7 +47,6 @@ exports.iniciarSesion = async (req, res) => {
   const { correo, contrasena } = req.body;
 
   try {
-    // Verificar si el usuario existe
     const query = `SELECT * FROM Usuario WHERE correo = $1`;
     const result = await db.query(query, [correo]);
 
@@ -48,20 +55,16 @@ exports.iniciarSesion = async (req, res) => {
     }
 
     const usuario = result.rows[0];
-
-    // Verificar la contraseña
     const esValida = await bcrypt.compare(contrasena, usuario.contrasena);
+
     if (!esValida) {
       return res.status(401).json({ error: "Contraseña incorrecta" });
     }
 
-    // Generar un token JWT
     const token = jwt.sign(
       { id: usuario.id, correo: usuario.correo },
       process.env.JWT_SECRET,
-      {
-        expiresIn: "2h",
-      }
+      { expiresIn: "2h" }
     );
 
     res.status(200).json({ mensaje: "Inicio de sesión exitoso", token });
