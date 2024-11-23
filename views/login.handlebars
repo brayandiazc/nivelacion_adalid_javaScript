@@ -1,0 +1,17 @@
+{{!-- views/login.handlebars --}}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h2 class="text-center">Iniciar Sesión</h2>
+    <form method="POST" action="/usuario/inicio-sesion">
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo Electrónico</label>
+        <input type="email" id="correo" name="correo" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="contrasena" class="form-label">Contraseña</label>
+        <input type="password" id="contrasena" name="contrasena" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+    </form>
+  </div>
+</div>
