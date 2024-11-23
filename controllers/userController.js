@@ -1,5 +1,4 @@
-// controllers/userController.js
-
+// Importar modelo de la base de datos
 const db = require("../models/db");
 
 // Controlador para obtener el perfil del usuario autenticado
