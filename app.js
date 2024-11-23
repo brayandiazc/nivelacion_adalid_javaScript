@@ -2,6 +2,11 @@
 const express = require("express");
 const dotenv = require("dotenv");
 
+// Importar modelos
+require("./models/usuario");
+require("./models/curso");
+require("./models/inscripcion");
+
 // Cargar variables de entorno
 dotenv.config();
 
