@@ -2,6 +2,12 @@
 const express = require("express");
 const dotenv = require("dotenv");
 
+// Importar rutas
+const authRoutes = require("./routes/authRoutes");
+
+// Usar rutas
+app.use(authRoutes);
+
 // Importar modelos
 require("./models/usuario");
 require("./models/curso");
